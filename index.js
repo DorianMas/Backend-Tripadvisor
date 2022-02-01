@@ -14,6 +14,10 @@ const app = express();
 app.use(cors());
 app.use(formidable());
 
+app.get("/", (req, res) => {
+  res.json("Hello");
+});
+
 //Cette route s'occupera de l'envoi du mail
 app.post("/form", (req, res) => {
   //   Le console.log de req.fields nous affiche les données qui ont été rentrées dans les inputs (dans le formulaire frontend) :
