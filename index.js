@@ -2,7 +2,7 @@ const express = require("express");
 const formidable = require("express-formidable");
 const cors = require("cors");
 require("dotenv").config();
-console.log(process.env);
+
 // mongoose.connect(process.env.MONGODB_URI);
 
 //package Mailgun-js  (on reseingne son API KEY + son DOMAIN et on importe le package)
@@ -15,7 +15,7 @@ app.use(cors());
 app.use(formidable());
 
 app.get("/", (req, res) => {
-  res.json("Hello");
+  res.status(200).json("Hello");
 });
 
 //Cette route s'occupera de l'envoi du mail
