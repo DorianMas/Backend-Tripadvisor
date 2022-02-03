@@ -21,7 +21,11 @@ app.get("/", (req, res) => {
 //Cette route s'occupera de l'envoi du mail
 app.post("/form", (req, res) => {
   //   Le console.log de req.fields nous affiche les données qui ont été rentrées dans les inputs (dans le formulaire frontend) :
-  const { firstname, lastname, email, subject, message } = req.fields;
+  const firstname = req.fields.firstname;
+  const lastname = req.fields.lastname;
+  const email = req.fields.email;
+  const message = req.fields.description;
+  console.log(req.fields);
 
   //   On crée un objet data qui contient des informations concernant le mail (qui m'envoie le mail, adresse vers laquelle je veux envoyer le mail, titre et contenu du mail) :
   const data = {
