@@ -25,7 +25,6 @@ app.post("/form", (req, res) => {
   const lastname = req.fields.lastname;
   const email = req.fields.email;
   const message = req.fields.description;
-  console.log(req.fields);
 
   //   On crée un objet data qui contient des informations concernant le mail (qui m'envoie le mail, adresse vers laquelle je veux envoyer le mail, titre et contenu du mail) :
   const data = {
@@ -35,10 +34,10 @@ app.post("/form", (req, res) => {
     text: `Message envoyé par ${firstname} ${lastname} : ${message}`,
   };
 
-  console.log(data);
-
   //   Fonctions fournies par le package mailgun pour créer le mail et l'envoyer :
   mailgun.messages().send(data, (error, body) => {
+    console.log(error);
+    console.log(body);
     if (error === undefined) {
       // s'il n'y a pas eu d'erreur lors de l'envoi du mail, on envoie la réponse suivante au frontend :
       res.status(200).json(body);
