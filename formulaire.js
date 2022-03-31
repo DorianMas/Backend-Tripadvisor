@@ -4,6 +4,7 @@ const cors = require("cors");
 const axios = require("axios");
 const router = express.Router();
 
+//package Mailgun-js  (renseignement de son API KEY + son DOMAIN et on importe le package)
 const API_KEY = process.env.MAILGUN_API_KEY;
 const DOMAIN = process.env.MAILGUN_DOMAIN;
 const mailgun = require("mailgun-js")({ apiKey: API_KEY, domain: DOMAIN });
@@ -26,8 +27,8 @@ router.post("/form", (req, res) => {
 
   //   Fonctions fournies par le package mailgun pour créer le mail et l'envoyer :
   mailgun.messages().send(data, (error, body) => {
-    console.log(error);
-    console.log(body);
+    console.log("error =>", error);
+    console.log("body =>", body);
     if (error === undefined) {
       // s'il n'y a pas eu d'erreur lors de l'envoi du mail, on envoie la réponse suivante au frontend :
       res.status(200).json(body);
