@@ -3,8 +3,6 @@ const formidable = require("express-formidable");
 const cors = require("cors");
 require("dotenv").config();
 
-// mongoose.connect(process.env.MONGODB_URI);
-
 //package Mailgun-js  (on reseingne son API KEY + son DOMAIN et on importe le package)
 const API_KEY = process.env.MAILGUN_API_KEY;
 const DOMAIN = process.env.MAILGUN_DOMAIN;
