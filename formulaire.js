@@ -3,6 +3,9 @@ const formidableMiddleware = require("express-formidable");
 const cors = require("cors");
 const axios = require("axios");
 const router = express.Router();
+
+const API_KEY = process.env.MAILGUN_API_KEY;
+const DOMAIN = process.env.MAILGUN_DOMAIN;
 const mailgun = require("mailgun-js")({ apiKey: API_KEY, domain: DOMAIN });
 
 //Cette route s'occupera de l'envoi du mail

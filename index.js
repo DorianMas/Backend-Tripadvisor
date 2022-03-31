@@ -3,10 +3,7 @@ const formidable = require("express-formidable");
 const cors = require("cors");
 require("dotenv").config();
 
-//package Mailgun-js  (on reseingne son API KEY + son DOMAIN et on importe le package)
-const API_KEY = process.env.MAILGUN_API_KEY;
-const DOMAIN = process.env.MAILGUN_DOMAIN;
-const mailgun = require("mailgun-js")({ apiKey: API_KEY, domain: DOMAIN });
+//package Mailgun-js  (on reseigne son API KEY + son DOMAIN et on importe le package)
 
 const app = express();
 app.use(cors());
